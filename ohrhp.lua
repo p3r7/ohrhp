@@ -35,6 +35,8 @@ end
 
 grid_redraw_metro:start(1/25)
 
+key_leds = {}
+
 function init()
   lights = true
   ohrhp.add_params() -- the script adds params via the `.add params()` function
@@ -113,10 +115,18 @@ function init()
   {33, 2, 3, 1661.22},
   {34, 1, 3, 1864.66},
   }
-  for i=1,58 do
-    g:led(keys[i][1], keys[i][2], keys[i][3])
+  for i=1, #keys do
+    local k = keys[i]
+    local x = k[1]
+    local y = k[2]
+    local brightness = k[3]
+    if key_leds[x] = nil then
+      key_leds[x] = {}
+    end
+    key_leds[x][y] = brightness
+    -- g:led(keys[i][1], keys[i][2], keys[i][3])
   end
-  g:refresh()
+  -- g:refresh()
 end
 
 if g:refresh() then
