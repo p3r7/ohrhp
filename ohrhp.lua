@@ -119,7 +119,7 @@ function init()
     local k = keys[i]
     local x = k[1]
     local y = k[2]
-    local brightness = k[3]
+    local brightness == k[3]
     if key_leds[x] = nil then
       key_leds[x] = {}
     end
